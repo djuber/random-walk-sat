@@ -127,10 +127,10 @@ void generate_random_assignment(problem phi){
    max_starts_for
    calculation required for schonings algorithm
  */
-int max_starts_for(problem phi) {
+unsigned long int max_starts_for(problem phi) {
   int n = phi->variable_count;
   // 61.3996 is 20 times sqrt(3*pi)
-  return (int)ceil(61.3996 * sqrt(n) * pow(1.3333, n));
+  return (unsigned long int)ceil(61.3996 * sqrt(n) * pow(1.3333, n));
 }
 
 /**
@@ -147,12 +147,14 @@ int max_loops_for(problem phi){
     if no satisfying assignment is found, return false
  */
 bool satisfiable(problem phi){
-  int max_starts = max_starts_for(phi);
+  unsigned long int max_starts = max_starts_for(phi);
   int max_loops = max_loops_for(phi);
-  int current_start = 0;
+  unsigned long int current_start = 0;
   srand(time(NULL));
-  max_loops = max_loops_for(phi);
   // start
+  std::cout<<"max_starts: "<<max_starts
+	   <<"\nmax_loops: "<<max_loops
+	   <<std::endl;
   while(current_start++ < max_starts){
     int current_loop = 0;
     generate_random_assignment(phi);

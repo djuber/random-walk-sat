@@ -74,7 +74,7 @@ problem empty_form_of_size(int clauses, int variables);
 void print_form(problem phi);
 
 // calculate needed values for schonings algorithm.
-int max_starts_for(problem phi); 
+unsigned long int max_starts_for(problem phi); 
 int max_loops_for(problem phi);
 
 

@@ -1,5 +1,11 @@
-CS408 Project 1
+CS408 Project 2
 Daniel Uber
 Spring 2013
 
-Implement D&C Sat algorithm for cnf formulas. 
+Implement Schonings Random Walk for SAT.
+
+I reused most of the data structure from the divide and conquer program.
+This allowed readfile.cc to remain essentially unchanged.
+
+Schonings algorithm does not need recursion, so no 
+attempt at sharing structure has been made. 
