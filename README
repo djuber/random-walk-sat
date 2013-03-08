@@ -9,3 +9,16 @@ This allowed readfile.cc to remain essentially unchanged.
 
 Schonings algorithm does not need recursion, so no 
 attempt at sharing structure has been made. 
+
+The number of random initializations required by the program is insanely large:
+ for 20 variables it is 86545
+for 50 variables it is 765675058
+for 75 variables it is 1245337617363
+for 125 variables it is 2835341908750583808
+
+
+The data structure choices made earlier have come back to haunt me.
+I eliminated the clause length field from the problem,
+seeing as it wasn't used in checking for satisfaction, but now
+traverse a clause twice to get a random variable.
+
