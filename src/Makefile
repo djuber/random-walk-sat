@@ -1,4 +1,4 @@
-# CS408 Project 1
+# CS408 Project 2
 # Daniel Uber
 headers = CNF.h
 objects = CNF.o readfile.o
@@ -46,5 +46,5 @@ walksat.exe: $(winobjects)
 # windows-test: windows
 # 	sh test-windows.sh	
 
-# zipfile: 
-# 	sh package.sh
+zipfile: 
+	sh package.sh

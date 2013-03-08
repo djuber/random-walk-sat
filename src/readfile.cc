@@ -1,7 +1,7 @@
 /**
-CS408 Project 1
+CS408 Project 2
 Daniel Uber
-D&C Sat Algorithm
+Random Walk Sat Schoning's Algorithm
 
 readfile.cc : read problem from cnf file
 provides read_problem_file
