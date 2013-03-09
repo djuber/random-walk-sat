@@ -147,22 +147,24 @@ int max_loops_for(problem phi){
     if no satisfying assignment is found, return false
  */
 bool satisfiable(problem phi){
-  unsigned long int max_starts = max_starts_for(phi);
-  int max_loops = max_loops_for(phi);
+  unsigned long int max_starts;
+  int max_loops;
   unsigned long int current_start = 0;
   srand(time(NULL));
   // start
-  std::cout<<"max_starts: "<<max_starts
-	   <<"\nmax_loops: "<<max_loops
-	   <<std::endl;
-  while(current_start++ < max_starts){
-    int current_loop = 0;
-    generate_random_assignment(phi);
-    while( !satisfied(phi) && current_loop++ < max_loops)
-      mutate_assignment(phi);
-    if (satisfied(phi)){
-      print_assignment(phi);
-      return true;
+  if(phi){
+    max_starts = max_starts_for(phi);
+    max_loops = max_loops_for(phi);
+    while(current_start++ < max_starts){
+      int current_loop = 0;
+      generate_random_assignment(phi);
+      while( !satisfied(phi) && current_loop++ < max_loops)
+	mutate_assignment(phi);
+      if (satisfied(phi)){
+	print_assignment(phi);
+	release_problem(phi);
+	return true;
+      }
     }
   }
   // we failed to find an assignment, there likely isn't one
